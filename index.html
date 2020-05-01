@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>FlexAbility</title>
+        <link rel="shortcut icon" href="../images/fav_icon.png" type="image/x-icon">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+        <!-- Bulma Version 0.8.x-->
+        <link rel='stylesheet prefetch' href='https://unpkg.com/bulma@0.8.0/css/bulma.min.css'>
+        
+        <link rel="stylesheet" type="text/css" href="./css/tabs.css">
+        <link rel="stylesheet" type="text/css" href="./css/inbox.css">
+        <link rel="stylesheet" type="text/css" href="./css/personal.css">
+        <script src="https://kit.fontawesome.com/7dc3015a44.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <nav class="navbar is-info">
+            <div class="navbar-brand">
+                <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+        <section class="hero is-info">
+            <div class="hero-body">
+                <div class="container">
+                    <h1 class="title" onclick="searchReset();">
+                        FlexAbility
+                    </h1>
+                    <h2 class="subtitle">
+                        connecting projects and skills in a dynamic world
+                    </h2>
+                </div>
+            </div>
+            <div class="tabs is-boxed is-centered main-menu" id="nav">
+                <ul>
+                    <li data-target="pane-1" id="1" class="is-active">
+                        <a>
+                            <span class="icon is-small"><i class="fa fa-empire"></i></span>
+                            <span>Project Center</span>
+                        </a>
+                    </li>
+                    <li data-target="pane-2" id="2" >
+                        <a>
+                            <span class="icon is-small"><i class="fas fa-users"></i></span>
+                            <span>Skill Search</span>
+                        </a>
+                    </li>
+                    <li data-target="pane-3" id="3">
+                        <a>
+                            <span class="icon is-small"><i class="fab fa-superpowers"></i></span>
+                            <span>Your Profile</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section class="section">
+            <div class="tab-content">
+                <div class="tab-pane is-active" id="pane-1">
+                    <div class="box">
+                        <div class="field has-addons">
+                            <div class="control is-expanded">
+                                <input class="input has-text-centered" type="search" placeholder="search for projects or area of interest">
+                            </div>
+                            <div class="control">
+                                <a class="button is-info" onclick="searched();">Search</a>
+                            </div>
+                        </div>
+                        <h1 class="subtitle" id="searchS">Showing recommended projects based on skills and interests</h1>
+                    </div>
+                    <div class="columns" id="mail-app">
+                        <aside class="column is-2 aside hero is-fullheight">
+                            <h1 class="subtitle is-4">Optional filters</h1>
+                            <div class="checkbox">
+                                <label class="checkbox">
+                                    <input type="checkbox">
+                                    Compensated work
+                                  </label>
+                                </div>
+                            <div class="field">
+                                <p class="control has-icons-left">
+                                  <span class="select">
+                                    <select>
+                                      <option selected>United States</option>
+                                      <option>Mexico</option>
+                                      <option>Canada</option>
+                                    </select>
+                                  </span>
+                                  <span class="icon is-small is-left">
+                                    <i class="fas fa-globe"></i>
+                                  </span>
+                                  <span class="select">
+                                    <select>
+                                      <option selected>Online work</option>
+                                      <option>Mixed</option>
+                                      <option>In person</option>
+                                    </select>
+                                  </span>
+                                  <div>
+                                    <label>
+                                        Within (miles)
+                                        <span class="select">
+                                            <select>
+                                              <option selected> 5 or less</option>
+                                              <option>10 or less</option>
+                                              <option>20 or less</option>
+                                              <option>50 or less</option>
+                                              <option>not applicable</option>
+                                            </select>
+                                          </span>
+                                    </label>
+                                    </div>
+                                  
+                                </label>
+                                </p>
+                              </div>
+                        </aside>
+                        <div class="column is-6 messages hero is-fullheight" id="message-feed">
+                            <div class="inbox-messages" id="inbox-messages">
+                                <div class="card" id="card-1" onclick="showMessage(1);">
+                                    <div class="card-content">
+                                        <figure class="msg-image">
+                                            <img src="images/archi.jpg"  alt="Image">
+                                        </figure>
+                                        <div class="msg-header">
+                                            <span class="msg-from"><small>NGO - Urban Architecture</small></span>
+                                        </div>
+                                        <div class="msg-subject">
+                                            <span class="msg-subject"><strong id="fake-subject-1">Habitat for Humanity</strong></span>
+                                        </div>
+                                        <div class="msg-snippet">
+                                            <p id="fake-snippet-1">Helping design next generation of efficient communities and houses through volunteering work</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card" id="card-2" onclick="showMessage(2);">
+                                    <div class="card-content">
+                                        <figure class="msg-image">
+                                            <img src="images/photo.jpeg"  alt="Image">
+                                        </figure>
+                                        <div class="msg-header">
+                                            <span class="msg-from"><small>Nature exploration - Photography</small></span>
+                                        </div>
+                                        <div class="msg-subject">
+                                            <span class="msg-subject"><strong id="fake-subject-1">National Geographic</strong></span>
+                                        </div>
+                                        <div class="msg-snippet">
+                                            <p id="fake-snippet-1">Looking for photography experts to help build content for new documentary</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card is-hidden" id="card-3" onclick="showMessage(3);">
+                                    <div class="card-content">
+                                        <figure class="msg-image">
+                                            <img src="images/analysis.jpg" alt="Image">
+                                        </figure>
+                                        <div class="msg-header">
+                                            <span class="msg-from"><small>Public healthcare - Data Analysis</small></span>
+                                        </div>
+                                        <div class="msg-subject">
+                                            <span class="msg-subject"><strong id="fake-subject-1">Worcester Health Department</strong></span>
+                                        </div>
+                                        <div class="msg-snippet">
+                                            <p id="fake-snippet-1">Looking for help analyzing outbreak data to help design new policies</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card" id="card-4" onclick="showMessage(4);">
+                                    <div class="card-content">
+                                        <figure class="msg-image">
+                                            <img src="images/manage.jpg" alt="Image">
+                                        </figure>
+                                        <div class="msg-header">
+                                            <span class="msg-from"><small>Public healthcare - Consulting</small></span>
+                                        </div>
+                                        <div class="msg-subject">
+                                            <span class="msg-subject"><strong id="fake-subject-1">Massachussets Health & Hospital Association</strong></span>
+                                        </div>
+                                        <div class="msg-snippet">
+                                            <p id="fake-snippet-1">Creating consulting task force for resource management during outbreak</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card is-hidden" id="card-5" onclick="showMessage(5);">
+                                    <div class="card-content">
+                                        <figure class="msg-image">
+                                            <img src="images/nurse.jpg" alt="Image">
+                                        </figure>
+                                        <div class="msg-header">
+                                            <span class="msg-from"><small>Group of small businesses - Nursing</small></span>
+                                        </div>
+                                        <div class="msg-subject">
+                                            <span class="msg-subject"><strong id="fake-subject-1">Businesses of Westford-MA</strong></span>
+                                        </div>
+                                        <div class="msg-snippet">
+                                            <p id="fake-snippet-1">Looking for someone with nursing formation to establish testing and care service accross small businesses when the economy reopens</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-4 message hero is-fullheight is-hidden" id="message-pane">
+                            <div class="box message-preview">
+                                <div class="top">
+                                    <div class="avatar">
+                                        <img src="https://placehold.it/128x128">
+                                    </div>
+                                    <div class="address">
+                                        <div class="name">Name</div>
+                                        <div class="email">Type of organization</div>
+                                    </div>
+                                    <hr>
+                                    <div class="content">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="pane-3">
+                    <!-- About -->
+                    <section class="section" id="about">
+                        <!-- Title -->
+                        <div class="section-heading">
+                        <h3 class="title is-2">About Me</h3>
+                        <h4 class="subtitle is-5">Catch me between the kitchen and the neighbors backyard</h4>
+                        <div class="container">
+                            <p>Fast dog with more than <strong>7 years</strong> of well-rounded experience with a degree in the
+                            field of
+                            <strong>Culinary Arts</strong>, extensive knowledge of modern dog snacks and love for <strong>outside runs</strong>.
+                            Looking for an opportunity to work and help society, as well as being involved in an organization that
+                            believes
+                            in leisure and exercise as part of a healthy work-life balance.</p>
+                        </div>
+                        </div>
+
+                        <div class="columns has-same-height is-gapless">
+                        <div class="column">
+                            <!-- Profile -->
+                            <div class="card">
+                            <div class="card-content">
+                                <h3 class="title is-4">Profile</h3>
+
+                                <div class="content">
+                                <table class="table-profile">
+                                    <tr>
+                                    <th colspan="1"></th>
+                                    <th colspan="2"></th>
+                                    </tr>
+                                    <tr>
+                                    <td>Address:</td>
+                                    <td>Next to the red couch in the living room</td>
+                                    </tr>
+                                    <tr>
+                                    <td>Phone:</td>
+                                    <td>0123-snack</td>
+                                    </tr>
+                                    <tr>
+                                    <td>Email:</td>
+                                    <td>owen@dogceos.com</td>
+                                    </tr>
+                                </table>
+                                </div>
+                                <br>
+                                <div class="buttons has-addons is-centered">
+                                <a href="#" class="button is-link">Github</a>
+                                <a href="#" class="button is-link">LinkedIn</a>
+                                <a href="#" class="button is-link">Twitter</a>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <!-- Profile picture -->
+                            <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-4by3">
+                                <img src="images/owen.jpeg" alt="Placeholder image">
+                                </figure>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <!-- Skills -->
+                            <div class="card">
+                            <div class="card-content skills-content">
+                                <h3 class="title is-4">Skills</h3>
+                                <div class="content">
+
+                                <article class="media">
+                                    <div class="media-content">
+                                    <div class="content">
+                                        <p>
+                                        <strong>Jumping:</strong>
+                                        <br>
+                                        <progress class="progress is-primary" value="90" max="100"></progress>
+                                        </p>
+                                    </div>
+                                    </div>
+                                </article>
+
+                                <article class="media">
+                                    <div class="media-content">
+                                    <div class="content">
+                                        <p>
+                                        <strong>Barking:</strong>
+                                        <br>
+                                        <progress class="progress is-primary" value="90" max="100"></progress>
+                                        </p>
+                                    </div>
+                                    </div>
+                                </article>
+
+                                <article class="media">
+                                    <div class="media-content">
+                                    <div class="content">
+                                        <p>
+                                        <strong>Empathy:</strong>
+                                        <br>
+                                        <progress class="progress is-primary" value="75" max="100"></progress>
+                                        </p>
+                                    </div>
+                                    </div>
+                                </article>
+
+                                <article class="media">
+                                    <div class="media-content">
+                                    <div class="content">
+                                        <p>
+                                        <strong>Listening:</strong>
+                                        <br>
+                                        <progress class="progress is-primary" value="95" max="100"></progress>
+                                        </p>
+                                    </div>
+                                    </div>
+                                </article>
+
+                                <article class="media">
+                                    <div class="media-content">
+                                    <div class="content">
+                                        <p>
+                                        <strong>Eating</strong>
+                                        <br>
+                                        <progress class="progress is-primary" value="100" max="100"></progress>
+                                        </p>
+                                    </div>
+                                    </div>
+                                </article>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    </section>
+                    <button class="button">Edit profile</button>
+                </div>
+                <div class="tab-pane" id="pane-2">
+                    <div class="box">
+                        <div class="field has-addons">
+                            <div class="control is-expanded">
+                                <input class="input has-text-centered" type="search" placeholder="search for people or skills">
+                            </div>
+                            <div class="control">
+                                <a class="button is-info" onclick="searched2();">Search</a>
+                            </div>
+                        </div>
+                        <h1 class="subtitle" id="searchS2">Showing recommended people based on skills</h1>
+                    </div>
+                    <div class="columns" id="mail-app">
+                        <aside class="column is-2 aside hero is-fullheight">
+                            <h1 class="subtitle is-4">Optional filters</h1>
+                            <div class="checkbox">
+                                <label class="checkbox">
+                                    <input type="checkbox">
+                                    Looking for compensation
+                                  </label>
+                                </div>
+                            <div class="field">
+                                <p class="control has-icons-left">
+                                  <span class="select">
+                                    <select>
+                                      <option selected>United States</option>
+                                      <option>Mexico</option>
+                                      <option>Canada</option>
+                                    </select>
+                                  </span>
+                                  <span class="icon is-small is-left">
+                                    <i class="fas fa-globe"></i>
+                                  </span>
+                                  <span class="select">
+                                    <select>
+                                      <option selected>Online work</option>
+                                      <option>Mixed</option>
+                                      <option>In person</option>
+                                    </select>
+                                  </span>
+                                  <div>
+                                    <label>
+                                        Within (miles)
+                                        <span class="select">
+                                            <select>
+                                              <option selected> 5 or less</option>
+                                              <option>10 or less</option>
+                                              <option>20 or less</option>
+                                              <option>50 or less</option>
+                                              <option>not applicable</option>
+                                            </select>
+                                          </span>
+                                    </label>
+                                    </div>
+                                  
+                                </label>
+                                </p>
+                              </div>
+                        </aside>
+                        <div class="column is-6 messages hero is-fullheight" id="message-feed">
+                            <div class="inbox-messages" id="inbox-messages">
+                                <div class="card" id="card2-1" onclick="showMessage2(1);">
+                                    <div class="card-content">
+                                        <figure class="msg-image">
+                                            <img src="images/isabel.jpg"  alt="Image">
+                                        </figure>
+                                        <div class="msg-header">
+                                            <span class="msg-from"><small>Hunter</small></span>
+                                        </div>
+                                        <div class="msg-subject">
+                                            <span class="msg-subject"><strong id="fake-subject-1">Isabel</strong></span>
+                                        </div>
+                                        <div class="msg-snippet">
+                                            <p id="fake-snippet-1">Looking to help get food to all those who need it</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card" id="card2-2" onclick="showMessage2(2);">
+                                    <div class="card-content">
+                                        <figure class="msg-image">
+                                            <img src="images/steve.jpg"  alt="Image">
+                                        </figure>
+                                        <div class="msg-header">
+                                            <span class="msg-from"><small>Builder</small></span>
+                                        </div>
+                                        <div class="msg-subject">
+                                            <span class="msg-subject"><strong id="fake-subject-1">Steve</strong></span>
+                                        </div>
+                                        <div class="msg-snippet">
+                                            <p id="fake-snippet-1">Specialist in construction and lifting, as well as managing teams</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card is-hidden" id="card2-3" onclick="showMessage2(3);">
+                                    <div class="card-content">
+                                        <figure class="msg-image">
+                                            <img src="images/jenny.jpg" alt="Image">
+                                        </figure>
+                                        <div class="msg-header">
+                                            <span class="msg-from"><small>Designer</small></span>
+                                        </div>
+                                        <div class="msg-subject">
+                                            <span class="msg-subject"><strong id="fake-subject-1">Jenny</strong></span>
+                                        </div>
+                                        <div class="msg-snippet">
+                                            <p id="fake-snippet-1">Designer with skills in graphic design and marketing caimpaing management</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card" id="card2-4" onclick="showMessage2(4);">
+                                    <div class="card-content">
+                                        <figure class="msg-image">
+                                            <img src="images/jack.jpg" alt="Image">
+                                        </figure>
+                                        <div class="msg-header">
+                                            <span class="msg-from"><small>Reporter</small></span>
+                                        </div>
+                                        <div class="msg-subject">
+                                            <span class="msg-subject"><strong id="fake-subject-1">Jack</strong></span>
+                                        </div>
+                                        <div class="msg-snippet">
+                                            <p id="fake-snippet-1">Photographer, Public Speaker, Reporter - committed to facts.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card is-hidden" id="card2-5" onclick="showMessage2(5);">
+                                    <div class="card-content">
+                                        <figure class="msg-image">
+                                            <img src="images/megan.jpg" alt="Image">
+                                        </figure>
+                                        <div class="msg-header">
+                                            <span class="msg-from"><small>Social scientist</small></span>
+                                        </div>
+                                        <div class="msg-subject">
+                                            <span class="msg-subject"><strong id="fake-subject-1">Meagan</strong></span>
+                                        </div>
+                                        <div class="msg-snippet">
+                                            <p id="fake-snippet-1">Specialist in social psychology and educational systems. 3 years of experience in consulting.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-4 message hero is-fullheight is-hidden" id="message-pane2">
+                            <div class="box message-preview">
+                                <div class="top">
+                                    <div class="avatar">
+                                        <img src="https://placehold.it/128x128">
+                                    </div>
+                                    <div class="address">
+                                        <div class="name">Name</div>
+                                        <div class="email">Type of organization</div>
+                                    </div>
+                                    <hr>
+                                    <div class="content">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>                 
+            </div>
+        </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@2.5.16/dist/vue.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/faker.min.js" integrity="sha256-QHdJObhDO++VITP6S4tMlDHRWMaUOk+s/xWIRgF/YY0=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js" integrity="sha256-4PIvl58L9q7iwjT654TQJM+C/acEyoG738iL8B8nhXg=" crossorigin="anonymous"></script>
+    <script src="./js/bulma.js"></script>
+    <script src="./js/tabs.js"></script>
+</body>
+</html>
